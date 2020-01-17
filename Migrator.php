@@ -496,8 +496,8 @@ END;
             $this->logMessage("No migrations available.\n");
             return true;
         }
-        $lastMigration = array_pop(array_keys($this->migrationFiles));
-        return $lastMigration;
+        $migrationIndexes = array_keys($this->migrationFiles);
+        return array_pop($migrationIndexes);
     }
 
     /**
