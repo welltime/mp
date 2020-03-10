@@ -739,12 +739,13 @@ END;
             $this->logMessage("Cannot validate existing version {$currentVersion} because it does not exist.\n");
         }
 
+        $migrationIndexes = array_keys($this->migrationFiles);
         // calculate direction
         if ($currentVersion === Migrator::VERSION_ZERO)
         {
             $direction = Migrator::DIRECTION_UP;
         }
-        else if ($currentVersion === array_pop(array_keys($this->migrationFiles)))
+        else if ($currentVersion === array_pop($migrationIndexes))
         {
             $direction = Migrator::DIRECTION_DOWN;
         }
