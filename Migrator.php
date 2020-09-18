@@ -649,7 +649,7 @@ END;
             if (method_exists($migration, $info['migrateRollbackF']))
             {
                 try {
-                    $migration->${info['migrateRollbackF']}($this);
+                    $migration->{$info['migrateRollbackF']}($this);
                 } catch (Exception $e) {
                     $this->logMessage("Error during rollback of {$info['actionName']} migration {$migrationName}: {$e}\n");
                 }
